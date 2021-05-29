@@ -7,7 +7,7 @@ bot = commands.Bot(command_prefix = '!')
 #-----------------------------------------------MAINCODE<
 #--------------------COGS-----------------------
 '''ADD COGS HERE!!!!'''
-cogs = ["cogs.blasty"] #             EACH FILE NAME OF THE COG IN THE FORMAT --> "FOLDER_NAME.FILE_NAME",
+cogs = ["cogs.blasty", "cogs.devCmd"] #             EACH FILE NAME OF THE COG IN THE FORMAT --> "FOLDER_NAME.FILE_NAME",
 
 @bot.event
 async def on_ready():
@@ -19,10 +19,11 @@ async def on_ready():
 			print(cog + " was loaded.")       
 		except Exception as e:                
 			print(e)
+#-------------------------------------------devCommands<
 #-----------------PING-----------------------------
-@bot.command(name="ping")
-async def ping(ctx: commands.Context):
-  await ctx.send(f"Pong! {round(bot.latency * 1000)}ms")        
+#@bot.command(name="ping")
+#async def ping(ctx: commands.Context):
+#  await ctx.send(f"Pong! {round(bot.latency * 1000)}ms")        
 #---------------------------------------------RUNNER<
 token = os.environ.get("TOKEN")
 bot.run(token, reconnect = True, bot = True)
